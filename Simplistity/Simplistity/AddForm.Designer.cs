@@ -69,12 +69,12 @@
             this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox.FormattingEnabled = true;
             this.comboBox.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F"});
+            "(A)",
+            "(B)",
+            "(C)",
+            "(D)",
+            "(E)",
+            "(F)"});
             this.comboBox.Location = new System.Drawing.Point(64, 64);
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(60, 21);
