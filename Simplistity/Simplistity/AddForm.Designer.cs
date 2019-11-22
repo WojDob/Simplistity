@@ -123,9 +123,10 @@
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "AddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddForm";
+            this.Text = "Add tasks";
             this.ResumeLayout(false);
             this.PerformLayout();
 

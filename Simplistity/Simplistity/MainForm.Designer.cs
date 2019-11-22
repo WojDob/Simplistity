@@ -95,8 +95,9 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.listView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Simplistity";
             this.ResumeLayout(false);
 
         }
