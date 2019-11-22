@@ -37,5 +37,10 @@ namespace Simplistity
             }
         }
 
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            AddForm addForm = new AddForm();
+            addForm.Show();
+        }
     }
 }
