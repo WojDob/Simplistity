@@ -35,7 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox = new System.Windows.Forms.CheckBox();
             this.addButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -50,12 +49,15 @@
             // textBox
             // 
             this.textBox.Location = new System.Drawing.Point(64, 12);
+            this.textBox.MaxLength = 30;
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(196, 20);
             this.textBox.TabIndex = 1;
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // dateTimePicker
             // 
+            this.dateTimePicker.CustomFormat = "";
             this.dateTimePicker.Enabled = false;
             this.dateTimePicker.Location = new System.Drawing.Point(64, 38);
             this.dateTimePicker.Name = "dateTimePicker";
@@ -100,28 +102,20 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(12, 91);
+            this.addButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.addButton.Location = new System.Drawing.Point(99, 91);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 7;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Location = new System.Drawing.Point(185, 91);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 8;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(272, 126);
-            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.checkBox);
             this.Controls.Add(this.label3);
@@ -146,6 +140,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBox;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button cancelButton;
     }
 }

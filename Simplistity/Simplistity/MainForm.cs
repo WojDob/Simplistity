@@ -12,34 +12,26 @@ namespace Simplistity
 {
     public partial class MainForm : Form
     {
-        private List<TaskToDo> tasks = new List<TaskToDo>();
+        public List<TaskToDo> tasks = new List<TaskToDo>();
 
         public MainForm()
         {
             
             InitializeComponent();
-            tasks.Add(new TaskToDo("get good at c#", "A"));
-            tasks.Add(new TaskToDo("finish this program", "B"));
-            refresh();
 
         }
-
-        private void refresh()
+        public void addToListview(TaskToDo task)
         {
-            foreach (TaskToDo obj in tasks)
-            {
-                ListViewItem item = new ListViewItem();
-                item.Text = (obj.Priority + " " + obj.ToDo);
-
-                item.Tag = obj;
-
-                listView1.Items.Add(item);
-            }
+            ListViewItem item = new ListViewItem();
+            item.Text = (task.Priority + " " + task.ToDo);
+            if (task.DueDate.HasValue)
+                item.Text = item.Text + " " + task.DueDate.Value.ToShortDateString();
+            listView1.Items.Add(item);
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            AddForm addForm = new AddForm();
+            AddForm addForm = new AddForm(this);
             addForm.Show();
         }
     }

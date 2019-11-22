@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace Simplistity
 {
-    class TaskToDo
+    public class TaskToDo
     {
         public string ToDo { get; set; }
         public string Priority { get; set; }
+        public DateTime? DueDate { get; set; }
+        public bool Checked { get; set; }
 
 
-        public TaskToDo(string todo, string priority)
-        {
-            this.ToDo = todo;
-            this.Priority = priority;
-        }
+        public TaskToDo() { DueDate = null; }
 
 
     }
