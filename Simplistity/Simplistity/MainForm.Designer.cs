@@ -28,25 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView = new System.Windows.Forms.ListView();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.addButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.archiveButton = new System.Windows.Forms.Button();
+            this.sortButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listView
+            // listView1
             // 
-            this.listView.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(12, 12);
-            this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(519, 352);
-            this.listView.TabIndex = 0;
-            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView1.CheckBoxes = true;
+            this.listView1.FullRowSelect = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(12, 12);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(318, 326);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(12, 344);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 1;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(93, 344);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(75, 23);
+            this.editButton.TabIndex = 2;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            // 
+            // archiveButton
+            // 
+            this.archiveButton.Location = new System.Drawing.Point(174, 344);
+            this.archiveButton.Name = "archiveButton";
+            this.archiveButton.Size = new System.Drawing.Size(75, 23);
+            this.archiveButton.TabIndex = 3;
+            this.archiveButton.Text = "Archive";
+            this.archiveButton.UseVisualStyleBackColor = true;
+            // 
+            // sortButton
+            // 
+            this.sortButton.Location = new System.Drawing.Point(255, 344);
+            this.sortButton.Name = "sortButton";
+            this.sortButton.Size = new System.Drawing.Size(75, 23);
+            this.sortButton.TabIndex = 4;
+            this.sortButton.Text = "Sort";
+            this.sortButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 526);
-            this.Controls.Add(this.listView);
+            this.ClientSize = new System.Drawing.Size(342, 379);
+            this.Controls.Add(this.sortButton);
+            this.Controls.Add(this.archiveButton);
+            this.Controls.Add(this.editButton);
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.listView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -56,7 +102,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button archiveButton;
+        private System.Windows.Forms.Button sortButton;
     }
 }
 

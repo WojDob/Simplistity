@@ -8,13 +8,13 @@ namespace Simplistity
 {
     class TaskToDo
     {
-        public string Todo { get; set; }
+        public string ToDo { get; set; }
         public string Priority { get; set; }
 
 
         public TaskToDo(string todo, string priority)
         {
-            this.Todo = todo;
+            this.ToDo = todo;
             this.Priority = priority;
         }
 
