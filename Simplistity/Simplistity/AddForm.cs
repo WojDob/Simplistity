@@ -26,7 +26,7 @@ namespace Simplistity
 
         private void addTask()
         {
-            TaskToDo task = new TaskToDo();
+            Todo task = new Todo();
 
             if(String.IsNullOrEmpty(textBox.Text))
             {
@@ -35,12 +35,14 @@ namespace Simplistity
                 return;
             }
 
-            task.ToDo = textBox.Text;
+            task.Description = textBox.Text;
             task.Priority = comboBox.Text;
             if(checkBox.Checked)
                 task.DueDate = dateTimePicker.Value;
 
             mainForm.addToListview(task);
+            mainForm.tasks.Add(task);
+            mainForm.save();
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -57,5 +59,6 @@ namespace Simplistity
         {
             textBox.BackColor = Color.White;
         }
+
     }
 }
