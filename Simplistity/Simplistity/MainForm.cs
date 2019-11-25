@@ -19,18 +19,16 @@ namespace Simplistity
 
         public MainForm()
         {
-
             InitializeComponent();
             load();
         }
         public void addToListview(Todo task)
         {
-            
 
             ListViewItem item = new ListViewItem();
-            item.Text = (task.Priority + " " + task.Description);
-            if (task.DueDate.HasValue)
-                item.Text = item.Text + " " + task.DueDate.Value.ToShortDateString();
+            item.Text = task.getTaskText();
+            if (task.Checked)
+                item.Checked = true;
             listView1.Items.Add(item);
 
         }
@@ -43,6 +41,7 @@ namespace Simplistity
 
         public void save()
         {
+
             XDocument xml = new XDocument(
             new XDeclaration("1.0", "utf-8", "yes"),
             new XElement("tasks",
@@ -50,7 +49,8 @@ namespace Simplistity
                 select new XElement("task",
                     new XElement("description", task.Description),
                     new XElement("dueDate", task.DueDate),
-                    new XElement("priority", task.Priority)
+                    new XElement("priority", task.Priority),
+                    new XElement("checked",task.Checked)
                     )
                 )
             );
@@ -65,7 +65,8 @@ namespace Simplistity
                      select new Todo(
                          task.Element("description").Value,
                          task.Element("priority").Value,
-                         task.Element("dueDate").Value
+                         task.Element("dueDate").Value,
+                         Convert.ToBoolean(task.Element("checked").Value)
                     )).ToList<Todo>();
 
             foreach(Todo task in tasks)
@@ -74,5 +75,32 @@ namespace Simplistity
             }
         }
 
+        private void archiveButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(tasks.Count.ToString());
+
+            tasks.RemoveAll(item => item.Checked == true);
+            MessageBox.Show(tasks.Count.ToString());
+            foreach (ListViewItem item in listView1.Items)
+            {
+                if (item.Checked)
+                    listView1.Items.Remove(item);
+            }
+            save();
+        }
+
+
+        private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            foreach (ListViewItem item in listView1.Items)
+            {
+                foreach (Todo task in tasks)
+                {
+                    if (item.Text.Equals(task.getTaskText()) && item.Checked)
+                        task.Checked = true;
+                }
+            }
+            save();
+        }
     }
 }

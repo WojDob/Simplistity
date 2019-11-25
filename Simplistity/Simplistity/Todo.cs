@@ -17,9 +17,10 @@ namespace Simplistity
         public bool Checked { get; set; }
 
 
-        public Todo() { DueDate = null; }
 
-        public Todo(string description, string priority, string dueDate)
+        public Todo() { DueDate = null; Checked = false; }
+
+        public Todo(string description, string priority, string dueDate, bool check)
         {
             Description = description;
             Priority = priority;
@@ -27,6 +28,15 @@ namespace Simplistity
                 DueDate = Convert.ToDateTime(dueDate);
             else
                 DueDate = null;
+            Checked = check;
+        }
+
+        public string getTaskText()
+        {
+            string taskText = (Priority + " " + Description);
+            if (DueDate.HasValue)
+                taskText = taskText + " " + DueDate.Value.ToShortDateString();
+            return taskText;
         }
     }
 }

@@ -35,10 +35,21 @@ namespace Simplistity
                 return;
             }
 
+
             task.Description = textBox.Text;
             task.Priority = comboBox.Text;
             if(checkBox.Checked)
                 task.DueDate = dateTimePicker.Value;
+
+            foreach (Todo todo in mainForm.tasks)
+            {
+                if(todo.getTaskText().Equals(task.getTaskText()))
+                {
+                    MessageBox.Show("This task has already been created.");
+                    return;
+                }
+            }
+
 
             mainForm.addToListview(task);
             mainForm.tasks.Add(task);

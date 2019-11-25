@@ -46,6 +46,7 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
+            this.listView1.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
             // 
             // addButton
             // 
@@ -74,6 +75,7 @@
             this.archiveButton.TabIndex = 3;
             this.archiveButton.Text = "Archive";
             this.archiveButton.UseVisualStyleBackColor = true;
+            this.archiveButton.Click += new System.EventHandler(this.archiveButton_Click);
             // 
             // sortButton
             // 
