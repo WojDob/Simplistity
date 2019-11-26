@@ -16,6 +16,8 @@ namespace Simplistity
         public AddForm(MainForm mainForm)
         {
             InitializeComponent();
+
+            comboBox.Items.Add("");
             this.mainForm = mainForm;
         }
 

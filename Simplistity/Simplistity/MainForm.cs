@@ -20,6 +20,7 @@ namespace Simplistity
         public MainForm()
         {
             InitializeComponent();
+
             load();
         }
         public void addToListview(Todo task)
@@ -77,10 +78,8 @@ namespace Simplistity
 
         private void archiveButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(tasks.Count.ToString());
 
             tasks.RemoveAll(item => item.Checked == true);
-            MessageBox.Show(tasks.Count.ToString());
             foreach (ListViewItem item in listView1.Items)
             {
                 if (item.Checked)
