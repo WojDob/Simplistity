@@ -16,8 +16,6 @@ namespace Simplistity
         public AddForm(MainForm mainForm)
         {
             InitializeComponent();
-
-            comboBox.Items.Add("");
             this.mainForm = mainForm;
         }
 
@@ -73,5 +71,13 @@ namespace Simplistity
             textBox.BackColor = Color.White;
         }
 
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox.Text.Equals("None"))
+            {
+                comboBox.SelectedItem = null;
+                comboBox.Text = "";
+            }
+        }
     }
 }

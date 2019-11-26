@@ -40,18 +40,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 15);
+            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "To do";
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(64, 12);
+            this.textBox.Location = new System.Drawing.Point(85, 15);
+            this.textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox.MaxLength = 30;
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(196, 20);
+            this.textBox.Size = new System.Drawing.Size(260, 22);
             this.textBox.TabIndex = 1;
             this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
@@ -59,9 +61,10 @@
             // 
             this.dateTimePicker.CustomFormat = "";
             this.dateTimePicker.Enabled = false;
-            this.dateTimePicker.Location = new System.Drawing.Point(64, 38);
+            this.dateTimePicker.Location = new System.Drawing.Point(85, 47);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(196, 20);
+            this.dateTimePicker.Size = new System.Drawing.Size(260, 22);
             this.dateTimePicker.TabIndex = 2;
             // 
             // comboBox
@@ -74,27 +77,32 @@
             "(C)",
             "(D)",
             "(E)",
-            "(F)"});
-            this.comboBox.Location = new System.Drawing.Point(64, 64);
+            "(F)",
+            "None"});
+            this.comboBox.Location = new System.Drawing.Point(85, 79);
+            this.comboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(60, 21);
+            this.comboBox.Size = new System.Drawing.Size(79, 24);
             this.comboBox.TabIndex = 3;
+            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 67);
+            this.label3.Location = new System.Drawing.Point(12, 82);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(52, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Priority";
             // 
             // checkBox
             // 
             this.checkBox.AutoSize = true;
-            this.checkBox.Location = new System.Drawing.Point(12, 41);
+            this.checkBox.Location = new System.Drawing.Point(16, 50);
+            this.checkBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox.Name = "checkBox";
-            this.checkBox.Size = new System.Drawing.Size(46, 17);
+            this.checkBox.Size = new System.Drawing.Size(56, 21);
             this.checkBox.TabIndex = 6;
             this.checkBox.Text = "Due";
             this.checkBox.UseVisualStyleBackColor = true;
@@ -103,9 +111,10 @@
             // addButton
             // 
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.addButton.Location = new System.Drawing.Point(99, 91);
+            this.addButton.Location = new System.Drawing.Point(132, 112);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.Size = new System.Drawing.Size(100, 28);
             this.addButton.TabIndex = 7;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
@@ -113,9 +122,9 @@
             // 
             // AddForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(272, 126);
+            this.ClientSize = new System.Drawing.Size(363, 155);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.checkBox);
             this.Controls.Add(this.label3);
@@ -123,6 +132,7 @@
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "AddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
