@@ -23,9 +23,19 @@ namespace Simplistity
 
             load();
         }
-        public void addToListview(Todo task)
-        {
 
+        //======================Adding tasks======================
+
+        public void addTask(Todo task)
+        {
+            tasks.Add(task);
+            addToListview(task);
+            save();
+        }
+
+        private void addToListview(Todo task)
+        {
+            
             ListViewItem item = new ListViewItem();
             item.Text = task.getTaskText();
             if (task.Checked)
@@ -34,11 +44,16 @@ namespace Simplistity
 
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private void refreshListview()
         {
-            AddForm addForm = new AddForm(this);
-            addForm.Show();
+            listView1.Items.Clear();
+            foreach (Todo task in tasks)
+            {
+                addToListview(task);
+            }
         }
+
+        //======================File handling======================
 
         public void save()
         {
@@ -60,26 +75,42 @@ namespace Simplistity
 
         private void load()
         {
-            XDocument xml = XDocument.Load("Todo.xml");
-
-            tasks = (from task in xml.Root.Elements("task")
-                     select new Todo(
-                         task.Element("description").Value,
-                         task.Element("priority").Value,
-                         task.Element("dueDate").Value,
-                         Convert.ToBoolean(task.Element("checked").Value)
-                    )).ToList<Todo>();
-
-            foreach(Todo task in tasks)
+            if (File.Exists("Todo.xml"))
             {
-                addToListview(task);
+                XDocument xml = XDocument.Load("Todo.xml");
+
+                tasks = (from task in xml.Root.Elements("task")
+                         select new Todo(
+                             task.Element("description").Value,
+                             task.Element("priority").Value,
+                             task.Element("dueDate").Value,
+                             Convert.ToBoolean(task.Element("checked").Value)
+                        )).ToList<Todo>();
+
+                foreach (Todo task in tasks)
+                {
+                    addToListview(task);
+                }
             }
+            else
+            {
+                save();
+            }
+        }
+
+        //=======================Buttons======================
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            AddForm addForm = new AddForm(this);
+            addForm.Show();
         }
 
         private void archiveButton_Click(object sender, EventArgs e)
         {
 
             tasks.RemoveAll(item => item.Checked == true);
+
             foreach (ListViewItem item in listView1.Items)
             {
                 if (item.Checked)
@@ -88,6 +119,7 @@ namespace Simplistity
             save();
         }
 
+        //======================Events======================
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {

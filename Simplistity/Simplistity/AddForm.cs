@@ -13,15 +13,11 @@ namespace Simplistity
     public partial class AddForm : Form
     {
         private MainForm mainForm;
+
         public AddForm(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
-        }
-
-        private void checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            dateTimePicker.Enabled = checkBox.Checked;
         }
 
         private void addTask()
@@ -34,7 +30,6 @@ namespace Simplistity
                 textBox.BackColor = Color.IndianRed;
                 return;
             }
-
 
             task.Description = textBox.Text;
             task.Priority = comboBox.Text;
@@ -50,12 +45,9 @@ namespace Simplistity
                 }
             }
 
-
-            mainForm.addToListview(task);
-            mainForm.tasks.Add(task);
-            mainForm.save();
+            mainForm.addTask(task);
         }
-
+        
         private void addButton_Click(object sender, EventArgs e)
         {
             addTask();
@@ -79,5 +71,11 @@ namespace Simplistity
                 comboBox.Text = "";
             }
         }
+
+        private void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            dateTimePicker.Enabled = checkBox.Checked;
+        }
+
     }
 }
