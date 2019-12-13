@@ -44,7 +44,7 @@ namespace Simplistity
 
         }
 
-        private void refreshListview()
+        private void refreshListView()
         {
             listView1.Items.Clear();
             foreach (Todo task in tasks)
@@ -108,14 +108,29 @@ namespace Simplistity
 
         private void archiveButton_Click(object sender, EventArgs e)
         {
+            //write checked items to file
+            using (System.IO.StreamWriter file =
+            new System.IO.StreamWriter(Directory.GetCurrentDirectory()+"\\done.txt", true))
+            {
+                foreach (Todo task in tasks)
+                {
+                    if (task.Checked)
+                    {
+                        file.WriteLine("x " + task.getTaskText());
+                    }
+                }
+            }
 
+            //remove tasks form task list
             tasks.RemoveAll(item => item.Checked == true);
 
+            //remove tasks from listview
             foreach (ListViewItem item in listView1.Items)
             {
                 if (item.Checked)
                     listView1.Items.Remove(item);
             }
+
             save();
         }
 
@@ -129,9 +144,19 @@ namespace Simplistity
                 {
                     if (item.Text.Equals(task.getTaskText()) && item.Checked)
                         task.Checked = true;
+                    if (item.Text.Equals(task.getTaskText()) && item.Checked==false)
+                        task.Checked = false;
                 }
             }
             save();
         }
+
+        private void sortButton_Click(object sender, EventArgs e)
+        {
+            tasks = tasks.OrderBy(x => x.DueDate).ToList();
+            refreshListView();
+            save();
+        }
+
     }
 }

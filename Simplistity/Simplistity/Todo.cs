@@ -10,13 +10,8 @@ namespace Simplistity
     {
         public string Description { get; set; }
         public string Priority { get; set; }
-
-        [XmlElement(IsNullable = true)]
         public DateTime? DueDate { get; set; }
-
         public bool Checked { get; set; }
-
-
 
         public Todo() { DueDate = null; Checked = false; }
 
